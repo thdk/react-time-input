@@ -1,22 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import TimeInput from './../src/timeInput.jsx';
 
 
-var TimeWrapper = React.createClass({
-	onFocusHandler:function(event){
+class TimeWrapper extends Component {
+	onFocusHandler(event){
 		console.log("hello there you entered :  my name is ",event.target.name);
-	},
-	onBlurHandler:function(event){
+	}
+
+	onBlurHandler(event) {
 		console.log("you left ");
-	},
-	onTimeChangeHandler: function (val) {
+	};
+
+	onTimeChangeHandler(val) {
 		if (val.length === 5) {
 			// do something with this value
 		}
-	},
+	}
 
-	render: function() {
+	render() {
 		return (
 			<TimeInput
 				name="example"
@@ -30,7 +32,7 @@ var TimeWrapper = React.createClass({
 			/>
 		);
 	}
-});
+};
 
 
 export class App extends React.Component {

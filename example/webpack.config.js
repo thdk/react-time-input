@@ -10,15 +10,15 @@ module.exports = {
 		filename: 'example-bundle.js'
 	},
 	resolve: {
-		extensions: ['', '.js', '.jsx']
+		extensions: ['.js', '.jsx']
 	},
 	module: {
-		loaders: [
+		rules: [
 			{
 				test: /\.jsx?$/,
-				exclude: /(node_modules|bower_components)/,
-				loaders: ['react-hot', 'babel']
-			}
-		]
-	}
+				exclude: /node_modules/,
+				loader: 'babel-loader',
+			},
+		],
+	},
 };

@@ -1,28 +1,25 @@
-module.exports = function(config) {
+module.exports = function (config) {
     config.set({
         basePath: '',
         frameworks: ['mocha', 'chai'],
         files: ['tests/builder.js'],
         browsers: ['PhantomJS'],
-       // browsers: ['chrome'],
+        // browsers: ['chrome'],
         preprocessors: {
             // add webpack as preprocessor
             'tests/builder.js': ['webpack']
         },
         webpack: {
+            mode: 'development',
             entry: ['babel-polyfill'],
             module: {
-                loaders: [
+                rules: [
                     {
-                        test: /.jsx?$/,
-                        loader: 'babel-loader',
+                        test: /\.jsx?$/,
                         exclude: /node_modules/,
-                        query: {
-                            presets: ['es2015', 'react']
-                        }
-                    }
+                        loader: 'babel-loader',
+                    },
                 ],
-                noParse: []
             },
         },
         plugins: [
